@@ -34,7 +34,7 @@ Roles use temporary credentials that rotate every 30 minutes or so and are a lot
 ```console
 curl 169.254.169.254/latest/meta-data/iam/security-credentials/{your-role-name}
 ```
-```
+
 ## (Not usabe on AWS Educate) PART 2 : User User roles
 
 ## Steps
