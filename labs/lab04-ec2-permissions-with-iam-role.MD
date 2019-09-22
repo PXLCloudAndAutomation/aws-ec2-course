@@ -1,5 +1,32 @@
+
 # Give EC2 Instance permissions with IAM Role
 
+## Steps
+- Go to IAM Dashboard and click on Roles 
+![image](https://user-images.githubusercontent.com/22568316/52908460-3fbc9800-3244-11e9-933c-0e686380cb5c.png)
+
+- Click Create Role and Select EC2 to be the service using this role
+![image](https://user-images.githubusercontent.com/22568316/52908469-5e229380-3244-11e9-8699-2be4c3df60c8.png)
+
+- Click next Permissions and select **AmazonS3FullAccess** policy and attach to this role. Also select **AmazonEC2FullAccess** policy for this role. We will reuse this role in the next lab.
+- Click Next Until you see the screen to enter the Role Name.Enter the name and description for the role.  Verify you have S3 and EC2 access policies attached and create the Role. 
+![image](https://user-images.githubusercontent.com/22568316/52908497-046e9900-3245-11e9-89d5-93e383ec74d0.png)
+
+- Go to EC2 Instance Page. Select the EC2 instance , Click Actions and Attach IAM Role. Attach the role we created in the previous step. 
+![image](https://user-images.githubusercontent.com/22568316/52908517-76df7900-3245-11e9-91f1-ac59869d00f8.png)
+
+- Now go back to the EC2 instance. 
+- Enter command to list s3 buckets. You should be able to 
+```console
+aws s3 ls --region us-east-1
+```
+- (OPTIONAL) Remove the Role we added a few steps back and try the S3 list command again. It shouldn't work.
+
+Now you see how to give access to S3 and other AWS services using access keys and Role. And you also know Roles are safer because it uses temporary Credentials. 
+
+- Let's keep the same instance for the Next Lab
+
+## (Not usabe on AWS Educate) PART 2 : User User roles
 
 ## Steps
 - Go to IAM Dashboard
@@ -53,33 +80,6 @@ rm ~/.aws/credentials
 ```console
 aws s3 ls --region us-east-1
 ```
-
-## PART 2 : Permissions with IAM Roles
-- Go to IAM Dashboard and click on Roles 
-![image](https://user-images.githubusercontent.com/22568316/52908460-3fbc9800-3244-11e9-933c-0e686380cb5c.png)
-
-- Click Create Role and Select EC2 to be the service using this role
-![image](https://user-images.githubusercontent.com/22568316/52908469-5e229380-3244-11e9-8699-2be4c3df60c8.png)
-
-- Click next Permissions and select **AmazonS3FullAccess** policy and attach to this role. Also select **AmazonEC2FullAccess** policy for this role. We will reuse this role in the next lab.
-- Click Next Until you see the screen to enter the Role Name.Enter the name and description for the role.  Verify you have S3 and EC2 access policies attached and create the Role. 
-![image](https://user-images.githubusercontent.com/22568316/52908497-046e9900-3245-11e9-89d5-93e383ec74d0.png)
-
-- Go to EC2 Instance Page. Select the EC2 instance , Click Actions and Attach IAM Role. Attach the role we created in the previous step. 
-![image](https://user-images.githubusercontent.com/22568316/52908517-76df7900-3245-11e9-91f1-ac59869d00f8.png)
-
-- Now go back to the EC2 instance. 
-- Enter command to list s3 buckets. You should be able to 
-```console
-aws s3 ls --region us-east-1
-```
-- (OPTIONAL) Remove the Role we added a few steps back and try the S3 list command again. It shouldn't work.
-
-Now you see how to give access to S3 and other AWS services using access keys and Role. And you also know Roles are safer because it uses temporary Credentials. 
-
-- Let's keep the same instance for the Next Lab
-
-
 
 
 
