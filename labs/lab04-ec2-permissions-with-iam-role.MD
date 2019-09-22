@@ -26,6 +26,15 @@ Now you see how to give access to S3 and other AWS services using access keys an
 
 - Let's keep the same instance for the Next Lab
 
+
+## How Roles work
+Roles use temporary credentials that rotate every 30 minutes or so and are a lot safer than hardcoding keys. 
+
+- Type this command inside your EC2 to view temporary credentials for the role attached to EC2
+```console
+curl 169.254.169.254/latest/meta-data/iam/security-credentials/{your-role-name}
+```
+```
 ## (Not usabe on AWS Educate) PART 2 : User User roles
 
 ## Steps
@@ -82,12 +91,3 @@ aws s3 ls --region us-east-1
 ```
 
 
-
-## How Roles work
-Roles use temporary credentials that rotate every 30 minutes or so and are a lot safer than hardcoding keys. 
-
-- Type this command inside your EC2 to view temporary credentials for the role attached to EC2
-```console
-curl 169.254.169.254/latest/meta-data/iam/security-credentials/{your-role-name}
-```
-```
